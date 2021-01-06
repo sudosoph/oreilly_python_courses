@@ -1,18 +1,30 @@
 import scrabble
 import string
 
-vowels = 'aeiou'
+longest = ""
 
-def has_all_vowels(word):
-    for vowel in vowels:
-        if vowel not in word:
-            return False
-    return True
-
-# print words that contain all vowels
 for word in scrabble.wordlist:
-    if has_all_vowels(word):
-        print(word)
+    is_palindrome = True
+    for index in range(len(word)):
+        if word[index] != word[- (index + 1)]:
+            is_palindrome = False
+    if is_palindrome and len(word) > len(longest):
+        longest = word
+
+print(longest)
+
+# vowels = 'aeiou'
+
+# def has_all_vowels(word):
+#     for vowel in vowels:
+#         if vowel not in word:
+#             return False
+#     return True
+
+# # print words that contain all vowels
+# for word in scrabble.wordlist:
+#     if has_all_vowels(word):
+#         print(word)
 
 # #print all letters that never appear doubled
 # for letter in string.ascii_lowercase:
